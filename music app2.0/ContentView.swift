@@ -8,9 +8,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var songsData = SongsData()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView{
+            SongList(songsData: self.songsData).tabItem{
+                Image(systemName: "house.fill")
+                Text("Home")
+            }
+            PlayList(songsData: self.songsData).tabItem{
+                Image(systemName: "livephoto.play")
+                Text("Play list")
+            }
+            Chart(songsData: self.songsData).tabItem{
+                Image(systemName: "chart.bar")
+                Text("Chart")
+            }
+            SearchView()
+                .tabItem{
+                    Image(systemName: "magnifyingglass")
+                    Text("My work")
+            }
+            ArtistList()
+                .tabItem{
+                    Image(systemName: "heart")
+                    Text("Fav Artist")
+            }
+        }.accentColor(Color.blue)
     }
 }
 
