@@ -20,9 +20,9 @@ struct SongEditor: View {
             TextField("Name", text: $name)
             TextField("Singer", text: $singer)
             Stepper("This song is type\(score)", value: $score, in: 0...5)
-            Toggle("Add it to play list?", isOn: $favorite)
+            Toggle("Add it to Practice List?", isOn: $favorite)
         }
-        .navigationBarTitle(editSong == nil ? "Add to song list" : "Edit")
+        .navigationBarTitle(editSong == nil ? "Add to Song List" : "Edit")
         .navigationBarItems(trailing: Button("Done") {
             let song = Song(name: self.name, singer: self.singer, Style: self.score, favor: self.favorite)
                 if let editSong = self.editSong{

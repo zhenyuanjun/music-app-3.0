@@ -38,7 +38,7 @@ struct BandInsert: View {
                 }.foregroundColor(Color.blue)
                 .sheet(isPresented: $showingImagePicker) {
                     ImagePickerController(selectImage: self.$selectImage, showSelectPhoto: self.$showingImagePicker)}
-            }.navigationBarTitle("Fav Singer")
+            }.navigationBarTitle("Add This Singer")
             .navigationBarItems(trailing: Button("Done"){
                 if self.selectImage != nil {
                     let imageName = UUID().uuidString

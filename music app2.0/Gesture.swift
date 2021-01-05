@@ -5,9 +5,7 @@
 //  Created by 陳元浚 on 2020/12/21.
 //
 import SwiftUI
-
 struct Gesture: View {
-    
     @State private var offset = CGSize.zero
     @State private var isDragging = false
     var body: some View{

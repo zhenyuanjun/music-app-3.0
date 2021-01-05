@@ -5,7 +5,6 @@
 //  Created by 陳元浚 on 2020/12/21.
 //
 import SwiftUI
-
 struct SearchView: View {
     @State private var Search = ""
     @State private var moveDis: CGFloat = 300
@@ -16,9 +15,8 @@ struct SearchView: View {
     @State private var nowIndex = 0
     @State private var longPressTime: CGFloat = 1
     let screenSize: CGRect = UIScreen.main.bounds
-    
     func GetSearch(){
-        let urlStr = "https://www.googleapis.com/customsearch/v1?cx=002779568533849920752:gmnwmsf0fcr&key=AIzaSyA4-Di_R6il21-2GnfBvMDrQPU6TfuM3bY&q=臺灣&siteSearch=youtube.com"
+        let urlStr = "https://www.googleapis.com/customsearch/v1?cx=e5af35c612eaa4546&key=AIzaSyAcHWXarHPiUWEvCjZR3Rdi59A_7qVppFQ&q=陳元浚cover&siteSearch=youtube.com"
         let newUrl = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         if let url = URL(string: newUrl) {
             URLSession.shared.dataTask(with: url) { (data, response , error) in
@@ -35,7 +33,6 @@ struct SearchView: View {
         }
     }
     var body: some View {
-        
         NavigationView {
             VStack {
                 HStack {
@@ -79,7 +76,9 @@ struct SearchView: View {
                     }
                 }
                 Spacer()
-            }.frame(height: screenSize.height)
+            }
+            .navigationBarTitle("作品集")
+            .frame(height: screenSize.height)
         }
     }
 }
@@ -87,5 +86,6 @@ struct SearchView: View {
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+        
     }
 }

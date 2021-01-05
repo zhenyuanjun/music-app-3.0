@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
     @ObservedObject var songsData = SongsData()
     var body: some View {
@@ -16,22 +15,22 @@ struct ContentView: View {
                 Text("Home")
             }
             PlayList(songsData: self.songsData).tabItem{
-                Image(systemName: "livephoto.play")
-                Text("Play list")
-            }
-            Chart(songsData: self.songsData).tabItem{
-                Image(systemName: "chart.bar")
-                Text("Chart")
+                Image(systemName: "bolt.horizontal.fill")
+                Text("Practice list")
             }
             SearchView()
                 .tabItem{
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: "play.rectangle.fill")
                     Text("My work")
             }
             ArtistList()
                 .tabItem{
-                    Image(systemName: "heart")
+                    Image(systemName: "heart.fill")
                     Text("Fav Artist")
+            }
+            Chart(songsData: self.songsData).tabItem{
+                Image(systemName: "chart.pie.fill")
+                Text("Chart")
             }
         }.accentColor(Color.blue)
     }

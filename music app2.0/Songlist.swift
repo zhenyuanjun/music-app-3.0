@@ -10,9 +10,11 @@ import SwiftUI
 struct SongList: View {
     @ObservedObject var songsData = SongsData()
     @State private var showEditSong = false
+    @ObservedObject var viewModel = SearchViewModel()
     var body: some View {
         NavigationView{
             List{
+                SearchTextField(searchText: $viewModel.searchText)
                 ForEach(songsData.songs){ (song) in
                     NavigationLink(destination: SongEditor(songsData: self.songsData, editSong: song)){
                         SongRow(song: song)
@@ -22,7 +24,7 @@ struct SongList: View {
                     self.songsData.songs.remove(atOffsets: indexSet)
                 }
             }
-            .navigationBarTitle("My fav singer's song")
+            .navigationBarTitle("Song List")
             .navigationBarItems(leading:
                 HStack{
                     EditButton()

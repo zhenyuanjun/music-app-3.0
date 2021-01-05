@@ -6,7 +6,22 @@
 //
 
 import SwiftUI
+struct SearchTextField: View {
+    @State var input: String = ""
+    @Binding var searchText: String
+    var body: some View {
+        HStack {
+            Image(systemName: "magnifyingglass")
+            TextField("Search word", text: $input, onCommit: {
+                self.searchText = self.input
+            })
+        }
+    }
+}
 
+final class SearchViewModel: ObservableObject {
+        @Published var searchText = ""
+}
 extension Color{
     static func rgb(r:Double,g:Double,b:Double)->Color{
         return Color(red : r / 255, green: g / 255, blue: b / 255)

@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct ArtistList: View {
     
     
@@ -21,7 +20,6 @@ struct ArtistList: View {
             self.ArtistDatas.bands.remove(at: index)
         }
     }
-    
     var body: some View {
         VStack(){
             Image("Youtube")
@@ -61,13 +59,14 @@ struct ArtistList: View {
                                 }
                             }
                         }
+                        
                     }
                     }.onDelete { (indexSet) in
                         self.ArtistDatas.bands.remove(atOffsets: indexSet)}
                     .onMove { (indexSet, index) in
                         self.ArtistDatas.bands.move(fromOffsets: indexSet, toOffset: index)}
                     
-                }.navigationBarTitle("fav singer/band")
+                }.navigationBarTitle("追蹤中歌手")
                 .navigationBarItems(leading: EditButton().foregroundColor(.blue), trailing: Button(action:{self.showBandInsert = true},
                                                                                                    label: {Image(systemName: "plus.circle.fill").foregroundColor(.blue)}))
                 .sheet(isPresented: $showBandInsert){
